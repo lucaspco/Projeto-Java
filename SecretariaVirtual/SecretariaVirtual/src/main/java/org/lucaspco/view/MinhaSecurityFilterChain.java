@@ -15,8 +15,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class MinhaSecurityFilterChain {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((requests) -> requests
+        http.authorizeHttpRequests((requests) -> requests
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                         .requestMatchers("/", "/home").permitAll()
                         .anyRequest().authenticated()
